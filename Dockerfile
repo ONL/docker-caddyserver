@@ -18,4 +18,4 @@ VOLUME /etc
 VOLUME /www
 
 ENTRYPOINT ["/bin/caddy"]
-CMD ["--conf", "/etc/Caddyfile", "--log", "stdout", "--agree=true"]
+CMD ["--conf", "/etc/Caddyfile", "--agree=true"]
