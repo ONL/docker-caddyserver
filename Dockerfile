@@ -4,8 +4,9 @@ RUN dnf upgrade -y \
     && dnf install -y wget
 
 WORKDIR /tmp
-RUN wget -O caddy "https://caddyserver.com/download/linux/amd64?plugins=http.ipfilter,http.jwt,http.locale,http.login,http.mailout,http.minify,http.prometheus,http.reauth,http.restic,http.webdav&license=personal&telemetry=off"
-RUN chmod 0775 /tmp/caddy
+RUN wget -O caddy.tar.gz "https://caddyserver.com/download/linux/amd64?plugins=http.ipfilter,http.jwt,http.locale,http.login,http.mailout,http.minify,http.prometheus,http.reauth,http.restic,http.webdav&license=personal&telemetry=off"
+RUN tar -xz --strip-components=1 -f /tmp/caddy.tar.gz
+RUN ls -l
 
 FROM scratch
 WORKDIR /bin
